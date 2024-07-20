@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Edit Pendaftar</h1>
+<form action="{{ url_for('edit', index=index) }}" method="POST">
+    <label for="nama">Nama Lengkap</label>
+    <input type="text" id="nama" name="nama" value="{{ data.nama }}" required>
+    
+    <label for="nik">NIK</label>
+    <input type="text" id="nik" name="nik" value="{{ data.nik }}" required>
+    
+    <label for="whatsapp">Nomor Whatsapp</label>
+    <input type="text" id="whatsapp" name="whatsapp" value="{{ data.whatsapp }}" required>
+    
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" value="{{ data.email }}" required>
+    
+    <label for="program">Program Pelatihan</label>
+    <select id="program" name="program" required>
+        <option value="Pelatihan Web Developer" {% if data.program == 'Pelatihan Web Developer' %}selected{% endif %}>Pelatihan Web Developer</option>
+        <option value="Data Scientist" {% if data.program == 'Data Scientist' %}selected{% endif %}>Data Scientist</option>
+        <option value="Android Developer" {% if data.program == 'Android Developer' %}selected{% endif %}>Android Developer</option>
+        <option value="Video Editor" {% if data.program == 'Video Editor' %}selected{% endif %}>Video Editor</option>
+        <option value="Animator" {% if data.program == 'Animator' %}selected{% endif %}>Animator</option>
+        <option value="Content Creator" {% if data.program == 'Content Creator' %}selected{% endif %}>Content Creator</option>
+        <option
